@@ -38,9 +38,9 @@ bash setup.sh
 
 ## 🚀 训练与推理
 
-### 训练模型
+### 方案一：本地训练
 
-确保你在一台拥有英伟达 GPU（至少 24GB 显存，推荐 3090/4090）的机器上运行。如果是在云服务器，可以使用 `remote_deploy.sh`。
+确保你在一台拥有英伟达 GPU（至少 24GB 显存，推荐 3090/4090）的机器上运行。
 
 ```bash
 # 启动训练
@@ -51,6 +51,22 @@ python train_classify.py \
     --img 448
 ```
 *所有超参、数据路径验证已在 `train_classify.py` 内部固化调优，直接运行即可。*
+
+### 方案二：一键云端部署 (推荐)
+
+如果你使用远程 GPU 服务器（如 AutoDL、算力云或实验室服务器），可以使用本项目提供的自动化部署脚手架 `remote_deploy.sh`，避开繁琐的手动 FTP/SCP 同步：
+
+1. 编辑 `remote_deploy.sh`，将顶部配置项修改为你的服务器信息：
+   ```bash
+   HOST="YOUR_SERVER_IP"
+   PORT="22"
+   USER="root"
+   ```
+2. 在本地执行部署：
+   ```bash
+   bash remote_deploy.sh
+   ```
+> 该脚本会自动将核心代码推送到服务器，跳过环境装配（`setup.sh`），并用 `nohup` 挂起后台训练任务，关机也不会中断！
 
 ### 图片推理
 
