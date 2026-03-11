@@ -1,0 +1,1 @@
+{"default":{"train":{"meta":"train.csv","file":"train.zip"},"test":{"meta":"","file":""},"validation":{"meta":"val.csv","file":"val.zip"}}}

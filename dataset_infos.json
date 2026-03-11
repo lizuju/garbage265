@@ -1,0 +1,1 @@
+{"default":{"features":{"image":{"_type":"Image"},"category":{"_type":"Value"}},"splits":{"validation":{"name":"validation","dataset_name":"garbage265"},"train":{"name":"train","dataset_name":"garbage265"}}}}
